@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LearnAxis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #7e57c2; /* Violet */
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #4a148c; /* Dark violet */
+      padding: 10px;
+      text-align: center;
+    }
+    nav button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      background: #7e57c2; /* Violet */
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    nav button:hover {
+      background: #9575cd; /* Lighter violet */
+    }
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+    .subjects {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .subject {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px;
+      width: 200px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .subject:hover {
+      transform: scale(1.05);
+      background: #ede7f6; /* Soft violet background */
+    }
+    .subject h3 {
+      margin: 10px 0;
+      color: #4a148c; /* Dark violet text */
+    }
+    .progress-bar {
+      background: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .progress {
+      background: #7e57c2; /* Violet progress */
+      height: 10px;
+      width: 0;
+      transition: width 1s;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LearnAxis</h1>
+    <p>Your interactive learning management website</p>
+  </header>
+
+  <nav>
+    <button onclick="showContent('courses')">Courses</button>
+    <button onclick="showContent('students')">Students</button>
+    <button onclick="showContent('progress')">Progress</button>
+  </nav>
+
+  <section id="content">
+    <p>Select a section above to explore LearnAxis.</p>
+  </section>
+
+  <script>
+    function showContent(section) {
+      let content = document.getElementById('content');
+      if (section === 'courses') {
+        content.innerHTML = `
+          <h2>Courses</h2>
+          <p>Here are some subjects available in LearnAxis:</p>
+          <div class="subjects">
+            <div class="subject">
+              <h3>📐 Math</h3>
+              <p>Algebra, Geometry, Calculus</p>
+              <div class="progress-bar"><div class="progress" style="width:70%"></div></div>
+              <small>Progress: 70%</small>
+            </div>
+            <div class="subject">
+              <h3>🔬 Science</h3>
+              <p>Physics, Chemistry, Biology</p>
+              <div class="progress-bar"><div class="progress" style="width:50%"></div></div>
+              <small>Progress: 50%</small>
+            </div>
+            <div class="subject">
+              <h3>📖 English</h3>
+              <p>Grammar, Literature, Writing</p>
+              <div class="progress-bar"><div class="progress" style="width:40%"></div></div>
+              <small>Progress: 40%</small>
+            </div>
+            <div class="subject">
+              <h3>🏛 History</h3>
+              <p>World History, Ancient Civilizations</p>
+              <div class="progress-bar"><div class="progress" style="width:60%"></div></div>
+              <small>Progress: 60%</small>
+            </div>
+            <div class="subject">
+              <h3>💻 Computer Science</h3>
+              <p>Programming, Databases, AI</p>
+              <div class="progress-bar"><div class="progress" style="width:30%"></div></div>
+              <small>Progress: 30%</small>
+            </div>
+          </div>
+        `;
+      } else if (section === 'students') {
+        content.innerHTML = "<h2>Students</h2><p>Track enrolled learners and their profiles.</p>";
+      } else if (section === 'progress') {
+        content.innerHTML = "<h2>Progress</h2><p>Monitor performance, grades, and completion rates.</p>";
+      }
+    }
+  </script>
+</body>
+</html>
